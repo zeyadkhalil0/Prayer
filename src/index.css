@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+.Header {
+  height: 100vh; 
+  width: 100%;
+  background-image: url(./assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
+}
+
+/* استجابة للموبايل */
+@media (max-width: 768px) {
+  .Header {
+    height: 100vh;  
+    background-position: center left;  
+    background-size: cover;
+  }
+}
