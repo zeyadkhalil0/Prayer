@@ -61,9 +61,9 @@ const Home = () => {
     const seconds = Math.floor(diff % 60);
 
     setCountdown(
-      `${hours.toString().padStart(2, "0")}:${minutes
+      `${hours.toString().padStart(2, "0")} : ${minutes
         .toString()
-        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`
+        .padStart(2, "0")} : ${seconds.toString().padStart(2, "0")}`
     );
   };
 
@@ -132,9 +132,9 @@ const nextPrayer = getNextPrayer(prayerTimes);
   return (
     <>
       <section className="Header flex flex-col justify-center items-center">
-        <div className="md:ml-[55%] space-y-6  w-[90%] md:w-2/5  px-4 py-6 bg-black/40 md:backdrop-blur-md rounded-2xl shadow-2xl">
+        <div className="md:ml-[55%]  w-[90%] md:h-[90%] md:w-2/5  px-4 py-6 bg-black/40 md:backdrop-blur-md rounded-2xl shadow-2xl">
           {/* Header */}
-          <main className="flex flex-row-reverse items-center justify-between  text-white">
+          <main className="flex flex-row-reverse items-center justify-around   text-white text-center">
             {/* Select Country */}
             <div
               className="flex flex-col items-center md:space-y-4 space-y-2"
@@ -163,22 +163,22 @@ const nextPrayer = getNextPrayer(prayerTimes);
             </div>
             {/* Date */}
             <div
-              className="md:space-y-4 space-y-2 md:text-xl font-semibold "
+              className="md:space-y-4 space-y-2 text-xl font-semibold "
               dir="rtl"
             >
               <h1>التاريخ</h1>
               <p dir="ltr">{FormatDate}</p>
             </div>
+          </main>
             {nextPrayer && (
-  <div className="text-center text-white space-y-2 px-1 py-2  ">
-    <h2 className="text-md font-bold">
-  الصلاة القادمة: {prayerNames[nextPrayer.name]}
+  <div className="text-center text-white space-y-2 px-1 py-2 md:w-1/2 m-auto  ">
+    <h2 className="text-lg font-bold">
+      الصلاة القادمة : {prayerNames[nextPrayer.name]}
     </h2>
-    <p className="text-xl  bg-green-600/40 rounded-xl">{countdown}</p>
+    <p className="text-xl text-center m-auto  bg-green-600/40 rounded-xl w-1/2 md:w-full">{countdown}</p>
   </div>
 )}
-          </main>
-          <hr />
+          <hr className="my-4" />
           {/* Prayer Times */}
           <main className="space-y-6">
             {prayerTimes ? (
@@ -186,7 +186,7 @@ const nextPrayer = getNextPrayer(prayerTimes);
                 .filter(([name]) => allowedPrayers.includes(name))
                 .map(([name, times]) => (
                   <div
-                    className="flex  justify-between bg-red-500/30   px-8 py-4 rounded-lg text-white text-xl"
+                    className="flex  justify-between bg-red-500/30   md:px-8 md:py-2 px-4 py-2 rounded-lg text-white text-xl"
                     dir="rtl"
                   >
                     <h1>{prayerNames[name] || name}</h1>
